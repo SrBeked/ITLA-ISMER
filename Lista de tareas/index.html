@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de tareas</title>
+</head>
+
+<body>
+
+<section>
+    <h1>Lista de tareas📋🖋</h1>
+    <input type="text" id="tarea">
+    <button id="agregar">Agregar</button>
+
+
+    <h3>Tarea: <span id="cantidad">0</span></h3>
+    <ul id="listado"></ul>
+</section>
+
+<script>
+    var inputTarea = document.getElementById("tarea");
+    var btn = document.getElementById("agregar");
+    var listado = document.getElementById("listado");
+    var cantidad = document.getElementById("cantidad");
+
+    var total = 0;
+
+    btn.onclick = function(){
+        if(inputTarea.value == ""){
+            alert("Se te olvido añadir una tarea ಠ_ಠ");
+            return;
+        }
+
+
+        var elemento = inputTarea.value;
+        var li = document.createElement("li")
+        li.textContent = elemento;
+
+        listado.appendChild(li);
+
+        total++;
+        cantidad.innerHTML = total;
+
+        var btnEliminar = document.createElement("span")
+        btnEliminar.textContent = "\u00d7"
+        li.appendChild(btnEliminar);
+
+
+        btnEliminar.onclick = function(){
+            li.remove()
+            total--
+            cantidad.innerHTML = total;
+        }
+
+        inputTarea.value = "";
+
+    }
+    
+</script>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@500&display=swap');
+    *{
+        box-sizing: border-box;
+        font-family: 'poppins', sans-serif;
+    }
+
+    section{
+        max-width: 600px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #e6a749;
+        
+    }
+
+    input{
+        width: 70%;
+        padding: 10px;
+    }
+
+    button{
+        width: 20%;
+        margin: 15px 0;
+        padding: 15px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        background-color: #000000;
+        transition: background-color .5%;
+        color:#ffffff;
+    }
+    button:hover{
+        background-color: #e90f0f;
+        color:#ffffff;
+    }
+    h1{
+        text-align: center;
+    }
+
+    ul{
+        text-align: left;
+    }
+
+    ul li{
+        border-bottom: 1px dashed #333;
+        margin: 8px 0;
+    }
+
+    span{
+        display: inline-block;
+        width: 20px;
+        height: 25px;
+        border-radius: 100%;
+        background-color: firebrick;
+        text-align: center;
+        color: #ffffff;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    span:hover{
+        background-color: darkred;
+    }
+
+
+
+
+
+</style>
+    
+</body>
+</html>

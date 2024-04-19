@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Interactiva</title>
+    <link rel="stylesheet" href="css/Calculadora_interactiva.css">
+</head>
+
+<body>
+        <style>
+                
+            .calculator {
+                width: 300px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #000000;
+                border-radius: 5px;
+                text-align: center;
+            }
+
+            #display {
+                width: 90%;
+                padding: 10px;
+                margin-bottom: 10px;
+
+            }
+
+            .buttons button {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+                font-size: 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            #de{
+                background-color: rgb(255, 0, 0);
+                width: 100px;
+
+            }
+
+            .buttons button:hover {
+                background-color: rgb(173, 190, 209);
+
+            }
+        </style>
+
+
+
+
+
+
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+
+            <button id="7">7</button>
+            <button id="8">8</button>
+            <button id="9">9</button>
+
+            <button id="+">+</button>
+            
+
+            <button id="4">4</button>
+            <button id="5">5</button>
+            <button id="6">6</button>
+
+            <button id="-">-</button>
+
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+
+            <button id="*">*</button>
+
+            <button id="0">0</button>
+            <button id=".">.</button>
+
+            <button id="/">/</button>
+
+            <button id="=">=</button>
+            <button id="de">C</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        const display = document.querySelector("#display");
+const buttons = document.querySelectorAll("button");
+const historyElement = document.createElement("div");
+historyElement.id = "history";
+document.body.appendChild(historyElement);
+let resultCount = 0;
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        if (btn.id === "=") {
+            const result = eval(display.value);
+            display.value = result;
+            updateHistory(result);
+        } else if (btn.id === "de") {
+            display.value = display.value.slice(0, -1);
+        } else {
+            display.value += btn.textContent;
+        }
+    });
+});
+
+function updateHistory(result) {
+    resultCount++;
+    const historyItem = document.createElement("div");
+    historyItem.textContent = "Resultado #" + resultCount + " es: " + result;
+    historyElement.appendChild(historyItem);
+}
+
+    </script>
+
+    
+
+</body>
+
+</html>

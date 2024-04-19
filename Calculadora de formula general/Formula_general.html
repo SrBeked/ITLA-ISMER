@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Formula general</title>
+</head>
+<body>
+
+    <script>
+        var a = parseInt(prompt("El valor de a es:"));
+        var b = parseInt(prompt("El valor de b es:"));
+        var c = parseInt(prompt("El valor de c es:"));
+
+        var e = (b * b);
+        var f = (4 * a * c);
+        var g = (2 * a);
+
+        var rel = (e - f);
+
+        if (rel > 0)
+        {
+
+        var re2 = Math.sqrt(rel);
+        var positivo = (1 * re2 - b);
+        var negativo = (-1 * re2 - b)
+
+        var solu1 = (positivo / g);
+        var solu2 = (negativo / g);
+
+        alert(solu1 + " " + "Y" + " "+ solu2);
+
+        } else
+        {
+            alert("valores erroneos");
+        }
+
+    </script>
+    
+</body>
+</html>

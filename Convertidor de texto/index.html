@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de texto</title>
+</head>
+<body>
+
+
+    <div class="container">
+            <h1>Sorpresa!!🎉</h1>
+        <img src="https://www.icegif.com/wp-content/uploads/icegif-7040.gif">
+    </div>
+</body>
+
+<style>
+
+h1 {
+    text-align: center;
+    color: hotpink;
+}
+
+    body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+}
+
+.container img {
+    display: block;
+    width: 300px;;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+</style>
+
+
+<script>
+
+    const palabra = prompt("Ingresa una palabra: ");
+
+    class Convertidor {
+    constructor(text) {
+        this.text = text;
+    }
+    
+    Cantidad() {
+        return this.text.length;
+    }
+
+    Mayuscula() {
+        return this.text.toUpperCase();
+    }
+
+    Minuscula() {
+        return this.text.toLowerCase();
+    }
+
+    Palindroma() {
+        let palabra = Array.from(this.text);
+        let voltear = palabra.reverse();
+        let juntar = voltear.join("");
+        let validacion = juntar === this.text ? "es palíndroma" : "no es palíndroma";
+        return validacion;
+    }
+    }
+
+    let convertidor = new Convertidor(palabra);
+    let resultados = `
+    Cantidad de caracteres: ${convertidor.Cantidad()}
+    Palabra en mayúsculas: ${convertidor.Mayuscula()}
+    Palabra en minúsculas: ${convertidor.Minuscula()}
+    Palabra palíndroma: ${convertidor.Palindroma()}
+    `;
+
+    alert(resultados);
+
+</script>
+</html>

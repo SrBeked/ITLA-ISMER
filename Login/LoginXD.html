@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>LoginXD</title>
+</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:wght@500&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(https://img.freepik.com/vector-premium/noche-junto-al-lago-paisaje-luz-luna-estilo-plano_104785-1196.jpg?w=740);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#login, #logout {
+    position: relative;
+    max-width: 400px;
+    background-color: transparent;
+    border: 2px solid rgba(223, 223, 186);
+    border-radius: 20px;
+    backdrop-filter: blur(55px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 3rem;
+    color: #fff;
+}
+
+.inputbox {
+    position: relative;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 60px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d816c8;
+    outline: none;
+    font-size: 0.8rem;
+    padding: 0 5px;
+    color: #e72ed8;
+}
+
+.inputbox input:focus {
+    border-color: #fff;
+}
+
+.inputbox label {
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    color: #fff;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #b40f0f;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #000;
+}
+
+        
+    </style>
+
+
+
+    <body>
+
+            <div id="login">
+                <h1>Login</h1>
+
+                    <input type="text" id="user">
+                    
+                    <h1>Contraseña</h1>
+                    <input type="password" id="password">
+                    <input type="button" value="login" onclick="login()">
+
+                </div>
+
+                <div id="logout" style="display: none;">
+                    <h1>Hola Beked👻</h1>
+                    <input type="button" value="logout" onclick="logout()">
+                </div>
+    </body>
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                let login = localStorage.getItem('login');
+                if(login){
+                    document.getElementById('logout').setAttribute('style', '');
+                    document.getElementById('login').setAttribute('style','display: none;');
+
+                }else{
+
+                    document.getElementById('logout').setAttribute('style','display: none;');
+                    document.getElementById('login').setAttribute('style','');
+
+                }
+            });
+
+            function login() {
+                let user = document.getElementById('user').value;
+                let password = document.getElementById('password').value;
+
+                if (user != 'Beked' || password != '1234'){
+                    alert("No mi ciela asi no va!💅🏻");
+                    return;
+                }
+            localStorage.setItem("login",true);
+            document.getElementById('logout').setAttribute('style', '');
+            document.getElementById('login').setAttribute('style', 'display: none;');
+
+            }
+
+            function logout() {
+                let login = localStorage.getItem('login');
+                if (!login) {
+                    alert("❌Aun no llenas los campos bien❌");
+                    return;
+                }
+                localStorage.removeItem('login');
+                document.getElementById('logout').setAttribute('style','display: none;');
+                document.getElementById('login').setAttribute('style','');
+
+            }
+
+        </script>
+
+</html>
